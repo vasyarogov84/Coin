@@ -7,7 +7,29 @@ import History from "./components/History";
 
 import { UserContext } from "../../context/UserContext";
 
+import { makeStyles } from "@material-ui/core/styles";
+const useStyles = makeStyles({
+  userMain: {
+    display: "flex",
+    flex: 1,
+    flexDirection: "row",
+  },
+  user: {
+    display: "flex",
+    flex: 1,
+    flexDirection: "column",
+    padding: 20,
+  },
+  userHistory: {
+    display: "flex",
+    flex: 4,
+    padding: 20,
+  },
+});
+
 const User = () => {
+  const classes = useStyles();
+
   const { user, logOut } = useContext(UserContext);
   const [userData, setUserData] = useState({
     balance: 0,
@@ -30,19 +52,12 @@ const User = () => {
   return (
     <>
       <Header logOut={logOut} />
-      <div style={{ display: "flex", flex: 1, flexDirection: "row" }}>
-        <div
-          style={{
-            display: "flex",
-            flex: 1,
-            flexDirection: "column",
-            padding: 20,
-          }}
-        >
+      <div className={classes.userMain}>
+        <div className={classes.user}>
           <Balance balance={userData.balance} />
           <Send user={user} setUserData={setUserData} userData={userData} />
         </div>
-        <div style={{ display: "flex", flex: 4, padding: 20 }}>
+        <div className={classes.userHistory}>
           <History balance={userData.balance} />
         </div>
       </div>

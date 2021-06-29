@@ -2,7 +2,17 @@ import React from "react";
 import { Line } from "react-chartjs-2";
 import { Paper } from "@material-ui/core";
 
+import { makeStyles } from "@material-ui/core/styles";
+const useStyles = makeStyles({
+  paper: {
+    display: "flex",
+    flex: 1,
+  },
+});
+
 const History = ({ balance }) => {
+  const classes = useStyles();
+
   const state = {
     labels: ["January", "February", "March", "April", "Current"],
     datasets: [
@@ -19,7 +29,7 @@ const History = ({ balance }) => {
   };
 
   return (
-    <Paper style={{ display: "flex", flex: 1 }}>
+    <Paper className={classes.paper}>
       <Line
         data={state}
         options={{

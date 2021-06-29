@@ -9,7 +9,33 @@ import {
   Typography,
 } from "@material-ui/core";
 
+import { makeStyles } from "@material-ui/core/styles";
+const useStyles = makeStyles({
+  paper: {
+    display: "flex",
+    flexDirection: "column",
+    marginTop: 25,
+  },
+  typography: {
+    margin: "10px 0px",
+  },
+  typSend: {
+    textAlign: "center",
+    margin: "10px 0px 20px 0px",
+  },
+  divSend: {
+    display: "flex",
+    flexDirection: "column",
+    padding: 20,
+  },
+  btn: {
+    marginTop: 25,
+    textTransform: "none",
+  },
+});
+
 const Send = ({ user, setUserData, userData }) => {
+  const classes = useStyles();
   const history = useHistory();
   const [transaction, setTransaction] = useState({
     fromAddress: user,
@@ -40,23 +66,13 @@ const Send = ({ user, setUserData, userData }) => {
 
   const disabled = !transaction.amount && !transaction.toAddress;
   return (
-    <Paper
-      variant="outlined"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        marginTop: 25,
-      }}
-    >
-      <Typography
-        color="textSecondary"
-        style={{ textAlign: "center", margin: "10px 0px 20px 0px " }}
-      >
+    <Paper variant="outlined" className={classes.paper}>
+      <Typography color="textSecondary" className={classes.typSend}>
         Send Jobcoin
       </Typography>
       <Divider />
-      <div style={{ display: "flex", flexDirection: "column", padding: 20 }}>
-        <Typography color="textSecondary" style={{ margin: "10px 0px" }}>
+      <div className={classes.divSend}>
+        <Typography color="textSecondary" className={classes.typography}>
           Destination Address
         </Typography>
         <TextField
@@ -66,7 +82,7 @@ const Send = ({ user, setUserData, userData }) => {
           variant="outlined"
           color="secondary"
         />
-        <Typography color="textSecondary" style={{ margin: "10px 0px" }}>
+        <Typography color="textSecondary" className={classes.typography}>
           Amount to Send
         </Typography>
         <TextField
@@ -78,7 +94,7 @@ const Send = ({ user, setUserData, userData }) => {
         />
         <Button
           disabled={disabled}
-          style={{ marginTop: 25, textTransform: "none" }}
+          className={classes.btn}
           variant="contained"
           color="primary"
           onClick={handleTransaction}

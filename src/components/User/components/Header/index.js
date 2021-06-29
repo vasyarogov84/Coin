@@ -4,7 +4,26 @@ import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
 import { useHistory } from "react-router-dom";
 import { Button, Typography, Divider } from "@material-ui/core";
 
+import { makeStyles } from "@material-ui/core/styles";
+const useStyles = makeStyles({
+  header: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    padding: "5px 10px",
+  },
+  typography: {
+    marginLeft: 15,
+  },
+  btn: {
+    marginLeft: 15,
+    color: "blue",
+    textTransform: "none",
+  },
+});
+
 const Header = ({ logOut }) => {
+  const classes = useStyles();
   const history = useHistory();
   const handleSignOut = () => {
     logOut();
@@ -13,14 +32,7 @@ const Header = ({ logOut }) => {
 
   return (
     <div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          padding: "5px 10px",
-        }}
-      >
+      <div className={classes.header}>
         <div
           style={{
             display: "flex",
@@ -29,7 +41,7 @@ const Header = ({ logOut }) => {
           }}
         >
           <MonetizationOnIcon />
-          <Typography color="textSecondary" style={{ marginLeft: 15 }}>
+          <Typography color="textSecondary" className={classes.typography}>
             Jobcoin Sender
           </Typography>
         </div>
@@ -41,13 +53,10 @@ const Header = ({ logOut }) => {
           }}
         >
           <FaceIcon />
-          <Typography color="textSecondary" style={{ marginLeft: 15 }}>
+          <Typography color="textSecondary" className={classes.typography}>
             Signed In
           </Typography>
-          <Button
-            style={{ marginLeft: 15, color: "blue", textTransform: "none" }}
-            onClick={handleSignOut}
-          >
+          <Button className={classes.btn} onClick={handleSignOut}>
             Sign Out
           </Button>
         </div>
