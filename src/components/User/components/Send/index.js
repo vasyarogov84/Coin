@@ -106,6 +106,4 @@ const Send = ({ user, setUserData, userData }) => {
   );
 };
 
-Send.defaultProps = {};
-
 export default Send;
