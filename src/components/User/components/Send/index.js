@@ -64,7 +64,8 @@ const Send = ({ user, setUserData, userData }) => {
     if (!user) history.push("/");
   }, []);
 
-  const disabled = !transaction.amount && !transaction.toAddress;
+  const disabled = !transaction.amount || !transaction.toAddress;
+
   return (
     <Paper variant="outlined" className={classes.paper}>
       <Typography color="textSecondary" className={classes.typSend}>
