@@ -1,20 +1,23 @@
 import React from "react";
-import { Paper, Divider } from "@material-ui/core";
+import { Paper, Divider, Typography } from "@material-ui/core";
 
 const Balance = ({ balance }) => {
   return (
     <Paper
-      elevation={1}
-      square
+      variant="outlined"
       style={{
         display: "flex",
         flexDirection: "column",
         textAlign: "center",
       }}
     >
-      <p>Jobcoin Balance</p>
+      <Typography color="textSecondary" style={{ margin: "15px 0px" }}>
+        Jobcoin Balance
+      </Typography>
       <Divider />
-      <p>{balance}</p>
+      <Typography color="textSecondary" style={{ margin: "40px 0px" }}>
+        {balance}
+      </Typography>
     </Paper>
   );
 };

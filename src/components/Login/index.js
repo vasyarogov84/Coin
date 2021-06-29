@@ -1,5 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Divider, TextField, Paper, Button } from "@material-ui/core";
+import {
+  Divider,
+  TextField,
+  Paper,
+  Button,
+  Typography,
+} from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 
@@ -32,45 +38,47 @@ const Login = () => {
         flex: 1,
         border: "3px solid green",
         justifyContent: "center",
-        alignItems: "center",
       }}
     >
       <div
         style={{
           display: "flex",
           flexDirection: "column",
-          width: 500,
-          marginBottom: 150,
         }}
       >
-        <p>Logo</p>
+        <h2 style={{ textAlign: "center", margin: "100px 0px" }}>Logo</h2>
         <Paper
           style={{
             display: "flex",
             justifyContent: "center",
             flexDirection: "column",
-            border: "1px solid grey",
-            padding: 40,
-            textAlign: "center",
           }}
         >
-          <p>Welcome! Sign In With Your Jobcoin Address</p>
-          <hr />
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <label style={{ display: "flex", flexDirection: "column" }}>
+          <Typography
+            color="textSecondary"
+            style={{ padding: "30px", textAlign: "center" }}
+          >
+            Welcome! Sign In With Your Jobcoin Address.
+          </Typography>
+          <Divider />
+          <div
+            style={{ display: "flex", flexDirection: "column", padding: 30 }}
+          >
+            <Typography color="textSecondary" style={{ marginBottom: 10 }}>
               Jobcoin address:
-              <TextField
-                size="small"
-                onChange={handleChange}
-                variant="outlined"
-                color="secondary"
-              />
-            </label>
+            </Typography>
+            <TextField
+              size="small"
+              onChange={handleChange}
+              variant="outlined"
+              color="secondary"
+            />
             <Button
+              disabled={!customer}
               variant="contained"
               color="primary"
               onClick={handleUserLogin}
-              style={{ marginTop: 20 }}
+              style={{ marginTop: 20, textTransform: "none" }}
             >
               Sign In
             </Button>

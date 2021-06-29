@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import { Divider, TextField, Paper, Button } from "@material-ui/core";
+import {
+  Divider,
+  TextField,
+  Paper,
+  Button,
+  Typography,
+} from "@material-ui/core";
 
 const Send = ({ user, setUserData, userData }) => {
   const history = useHistory();
@@ -35,18 +41,24 @@ const Send = ({ user, setUserData, userData }) => {
   const disabled = !transaction.amount && !transaction.toAddress;
   return (
     <Paper
-      elevation={1}
+      variant="outlined"
       style={{
         display: "flex",
         flexDirection: "column",
         marginTop: 25,
-        textAlign: "center",
       }}
     >
-      <p>Send Jobcoin</p>
+      <Typography
+        color="textSecondary"
+        style={{ textAlign: "center", margin: "10px 0px 20px 0px " }}
+      >
+        Send Jobcoin
+      </Typography>
       <Divider />
       <div style={{ display: "flex", flexDirection: "column", padding: 20 }}>
-        <label>Destination Address</label>
+        <Typography color="textSecondary" style={{ margin: "10px 0px" }}>
+          Destination Address
+        </Typography>
         <TextField
           size="small"
           onChange={handleChange}
@@ -54,7 +66,9 @@ const Send = ({ user, setUserData, userData }) => {
           variant="outlined"
           color="secondary"
         />
-        <label>Amount to Send</label>
+        <Typography color="textSecondary" style={{ margin: "10px 0px" }}>
+          Amount to Send
+        </Typography>
         <TextField
           size="small"
           onChange={handleChange}
@@ -64,7 +78,7 @@ const Send = ({ user, setUserData, userData }) => {
         />
         <Button
           disabled={disabled}
-          style={{ marginTop: 25 }}
+          style={{ marginTop: 25, textTransform: "none" }}
           variant="contained"
           color="primary"
           onClick={handleTransaction}

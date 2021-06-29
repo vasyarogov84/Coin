@@ -2,7 +2,7 @@ import React from "react";
 import FaceIcon from "@material-ui/icons/Face";
 import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
 import { useHistory } from "react-router-dom";
-import { Button } from "@material-ui/core";
+import { Button, Typography, Divider } from "@material-ui/core";
 
 const Header = ({ logOut }) => {
   const history = useHistory();
@@ -18,7 +18,7 @@ const Header = ({ logOut }) => {
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
-          padding: "0px 10px",
+          padding: "5px 10px",
         }}
       >
         <div
@@ -29,7 +29,9 @@ const Header = ({ logOut }) => {
           }}
         >
           <MonetizationOnIcon />
-          <p style={{ marginLeft: 15 }}>Jobcoin Sender</p>
+          <Typography color="textSecondary" style={{ marginLeft: 15 }}>
+            Jobcoin Sender
+          </Typography>
         </div>
         <div
           style={{
@@ -39,16 +41,18 @@ const Header = ({ logOut }) => {
           }}
         >
           <FaceIcon />
-          <p style={{ marginLeft: 15 }}>Signed In</p>
+          <Typography color="textSecondary" style={{ marginLeft: 15 }}>
+            Signed In
+          </Typography>
           <Button
-            style={{ marginLeft: 15, color: "blue" }}
+            style={{ marginLeft: 15, color: "blue", textTransform: "none" }}
             onClick={handleSignOut}
           >
             Sign Out
           </Button>
         </div>
       </div>
-      <hr />
+      <Divider />
     </div>
   );
 };

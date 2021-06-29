@@ -34,7 +34,7 @@ const User = () => {
         <div
           style={{
             display: "flex",
-            flex: 2,
+            flex: 1,
             flexDirection: "column",
             padding: 20,
           }}
@@ -42,8 +42,8 @@ const User = () => {
           <Balance balance={userData.balance} />
           <Send user={user} setUserData={setUserData} userData={userData} />
         </div>
-        <div style={{ display: "flex", flex: 3, padding: 20 }}>
-          <History />
+        <div style={{ display: "flex", flex: 4, padding: 20 }}>
+          <History balance={userData.balance} />
         </div>
       </div>
     </>
