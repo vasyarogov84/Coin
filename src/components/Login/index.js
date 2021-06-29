@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import { Divider, TextField, Paper, Button } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 
@@ -43,7 +44,7 @@ const Login = () => {
         }}
       >
         <p>Logo</p>
-        <div
+        <Paper
           style={{
             display: "flex",
             justifyContent: "center",
@@ -58,13 +59,23 @@ const Login = () => {
           <div style={{ display: "flex", flexDirection: "column" }}>
             <label style={{ display: "flex", flexDirection: "column" }}>
               Jobcoin address:
-              <input onChange={handleChange} type="text" />
+              <TextField
+                size="small"
+                onChange={handleChange}
+                variant="outlined"
+                color="secondary"
+              />
             </label>
-            <button onClick={handleUserLogin} style={{ marginTop: 20 }}>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleUserLogin}
+              style={{ marginTop: 20 }}
+            >
               Sign In
-            </button>
+            </Button>
           </div>
-        </div>
+        </Paper>
       </div>
     </div>
   );

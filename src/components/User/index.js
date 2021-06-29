@@ -8,7 +8,7 @@ import History from "./components/History";
 import { UserContext } from "../../context/UserContext";
 
 const User = () => {
-  const { user } = useContext(UserContext);
+  const { user, logOut } = useContext(UserContext);
   const [userData, setUserData] = useState({
     balance: 0,
     transactions: [],
@@ -29,7 +29,7 @@ const User = () => {
 
   return (
     <>
-      <Header />
+      <Header logOut={logOut} />
       <div style={{ display: "flex", flex: 1, flexDirection: "row" }}>
         <div
           style={{

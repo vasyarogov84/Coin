@@ -1,6 +1,5 @@
 import React from "react";
-import { Paper } from "@material-ui/core";
-import { Divider } from "@material-ui/core";
+import { Paper, Divider } from "@material-ui/core";
 
 const Balance = ({ balance }) => {
   return (

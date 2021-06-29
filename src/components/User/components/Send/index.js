@@ -21,10 +21,11 @@ const Send = ({ user, setUserData, userData }) => {
       "https://jobcoin.gemini.com/applicant-ominous/api/transactions",
       transaction
     );
-    console.log(
-      "🚀 ~ file: index.js ~ line 24 ~ handleTransaction ~ result",
-      result
-    );
+    if (result?.status === 200)
+      setUserData({
+        ...userData,
+        balance: userData.balance - transaction.amount,
+      });
   };
 
   useEffect(() => {
@@ -47,6 +48,7 @@ const Send = ({ user, setUserData, userData }) => {
       <div style={{ display: "flex", flexDirection: "column", padding: 20 }}>
         <label>Destination Address</label>
         <TextField
+          size="small"
           onChange={handleChange}
           name="toAddress"
           variant="outlined"
@@ -54,6 +56,7 @@ const Send = ({ user, setUserData, userData }) => {
         />
         <label>Amount to Send</label>
         <TextField
+          size="small"
           onChange={handleChange}
           name="amount"
           variant="outlined"
