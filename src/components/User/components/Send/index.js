@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { Divider, TextField, Paper, Button } from "@material-ui/core";
 
-const Send = ({ user }) => {
+const Send = ({ user, setUserData, userData }) => {
   const history = useHistory();
   const [transaction, setTransaction] = useState({
     fromAddress: user,
@@ -18,7 +18,7 @@ const Send = ({ user }) => {
 
   const handleTransaction = async () => {
     const result = await axios.post(
-      "http://jobcoin.gemini.com/applicant-ominous/api/transactions",
+      "https://jobcoin.gemini.com/applicant-ominous/api/transactions",
       transaction
     );
     console.log(

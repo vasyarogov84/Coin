@@ -16,7 +16,7 @@ const User = () => {
 
   const fetchUser = async (user) => {
     const result = await axios.get(
-      `http://jobcoin.gemini.com/applicant-ominous/api/addresses/${user}`
+      `https://jobcoin.gemini.com/applicant-ominous/api/addresses/${user}`
     );
     setUserData(result.data);
   };
@@ -40,7 +40,7 @@ const User = () => {
           }}
         >
           <Balance balance={userData.balance} />
-          <Send user={user} />
+          <Send user={user} setUserData={setUserData} userData={userData} />
         </div>
         <div style={{ display: "flex", flex: 3, padding: 20 }}>
           <History />
